@@ -14,6 +14,11 @@ source ./em-setup
 @test "em path show" {
     run em path show
     [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "/usr/local/bin" ]
+    [ "${lines[1]}" = "/usr/bin" ]
+    [ "${lines[2]}" = "/bin" ]
+    [ "${lines[3]}" = "/usr/sbin" ]
+    [ "${lines[4]}" = "/sbin" ]
 }
 
 function assert_in() {
