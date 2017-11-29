@@ -14,6 +14,7 @@ function path-array() {
     IFS=$preIFS
 }
 
+# -----------------------------------------------------------------------------
 function em() {
     CMD=$1
     shift
@@ -57,6 +58,31 @@ function em-path() {
 }
 
 # -----------------------------------------------------------------------------
+function em-path-rm() {
+    DRYRUN=0
+    shift # drop 'rm'
+    RGX=$1
+    if [ "$RGX" = "-n" ]; then
+        DRYRUN=1
+        shift
+        RGX=$1
+    fi
+    NP=()
+    PL=( $(path-array) )
+    for item in ${PL[@]}; do
+        if [ $(expr "$item" : ".*$RGX") -eq 0 ]; then
+            NP+=($item)
+        fi
+    done
+    RVAL=$( IFS=':'; echo "${NP[*]}" )
+    if [ $DRYRUN -eq 1 ]; then
+        echo "would set '$RVAL'"
+    else
+        export PATH=$RVAL
+        echo "PATH = $PATH"
+    fi
+}
+
 # -----------------------------------------------------------------------------
 function em-path-show() {
     echo $PATH | tr ":" "\n"
@@ -73,4 +99,3 @@ function cshift() {
     shift
     return $FIRST
 }
-
