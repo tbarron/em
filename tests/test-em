@@ -2,9 +2,11 @@
 
 source ./em-setup
 
+# -----------------------------------------------------------------------------
 function setup {
     echo "running setup" >&2
     export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    export PATH="$PATH:$HOME/bin:/usr/local/xyz"
 }
 
 @test "em help" {
