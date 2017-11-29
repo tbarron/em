@@ -22,8 +22,9 @@ function em() {
         help)
             echo "em - environment manager"
             echo " "
-            echo "    help      - display this message"
-            echo "    path show - show \$PATH in a readable format"
+            echo "    help        - display this message"
+            echo "    path show   - show \$PATH in a readable format"
+            echo "    path rm RGX - remove \$PATH items matching RGX"
         ;;
         path)
             em-path $*
