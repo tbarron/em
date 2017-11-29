@@ -46,6 +46,9 @@ function em-path() {
         show)
             em-path-show
         ;;
+        rm)
+            em-path-rm $*
+        ;;
         *)
             echo "Unrecognized path request '$REQ'"
             false
