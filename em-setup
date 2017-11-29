@@ -5,6 +5,15 @@ function bt() {
     done
 }
 
+# -----------------------------------------------------------------------------
+function path-array() {
+    preIFS=$IFS
+    IFS=$':'
+    PL=(  $(echo $PATH) )
+    echo ${PL[*]}
+    IFS=$preIFS
+}
+
 function em() {
     CMD=$1
     shift
