@@ -1,0 +1,28 @@
+#!/usr/bin/env bats
+
+source ./em-setup
+
+@test "em help" {
+    run em help
+    [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "em - environment manager" ]
+    [ "${lines[1]}" = " " ]
+    [ "${lines[2]}" = "    help      - display this message" ]
+    [ "${lines[3]}" = "    path show - show \$PATH in a readable format" ]
+}
+
+@test "em path show" {
+    run em path show
+    [ "$status" -eq 0 ]
+}
+
+function assert_in() {
+    NEEDLE=$1
+    HAYSTACK=$2
+    RESULT=$(expr "$HAYSTACK" : ".*$NEEDLE")
+    if [[ $RESULT == "" || $RESULT == 0 ]]; then
+        true
+    else
+        false
+    fi
+}
