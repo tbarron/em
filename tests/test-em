@@ -46,8 +46,11 @@ function setup {
     [ "$PATH" = "/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em path dock" {
-    false
+    run em path dock
+    [ "$status" -eq 0 ]
+    [ "$PATH" = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin" ]
 }
 
 @test "em path ladd" {
