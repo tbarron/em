@@ -31,8 +31,12 @@ function setup {
     [ "${lines[4]}" = "/sbin" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em path rm RGX" {
-    false
+    run em path rm sbin
+    [ "$status" -eq 0 ]
+    EXP="PATH = /usr/local/bin:/usr/bin:/bin:$HOME/bin:/usr/local/xyz"
+    [ "$output" = "$EXP" ]
 }
 
 @test "em path decap" {
