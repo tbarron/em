@@ -1,0 +1,27 @@
+function em() {
+    CMD=$1
+    shift
+
+    case $CMD in
+        help)
+            echo "em - environment manager"
+            echo " "
+            echo "    help      - display this message"
+            echo "    path show - show \$PATH in a readable format"
+            ;;
+        path)
+            em-path-show
+            ;;
+    esac
+}
+
+function em-path-show() {
+    echo "This is function em-path-show"
+}
+
+function cshift() {
+    FIRST="$1"
+    shift
+    return $FIRST
+}
+
