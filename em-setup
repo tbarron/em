@@ -13,6 +13,9 @@ function em() {
         path)
             em-path-show
             ;;
+        reload)
+            source $HOME/prj/em/em-setup
+        ;;
         *)
             echo "Unrecognized command $CMD"
             exit 1
