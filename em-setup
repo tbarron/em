@@ -16,7 +16,7 @@ function em() {
 }
 
 function em-path-show() {
-    echo "This is function em-path-show"
+    echo $PATH | tr ":" "\n"
 }
 
 function cshift() {
