@@ -2,6 +2,11 @@
 
 source ./em-setup
 
+function setup {
+    echo "running setup" >&2
+    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+}
+
 @test "em help" {
     run em help
     [ "$status" -eq 0 ]
