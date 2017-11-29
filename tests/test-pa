@@ -10,9 +10,7 @@ function setup {
 
 # -----------------------------------------------------------------------------
 @test "path-array" {
-    run path-array
+    GOT=( $(path-array) )
     EXP=( /usr/local/bin /usr/bin /bin /usr/sbin /sbin $HOME/bin /usr/local/xyz )
-    echo $output >> xxx
-    echo ${EXP[*]} >> xxx
-    [ "$output" = "${EXP[*]}" ]
+    [ "${GOT[*]}" = "${EXP[*]}" ]
 }
