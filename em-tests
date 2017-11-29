@@ -26,6 +26,26 @@ function setup {
     [ "${lines[4]}" = "/sbin" ]
 }
 
+@test "em path rm RGX" {
+    false
+}
+
+@test "em path decap" {
+    false
+}
+
+@test "em path dock" {
+    false
+}
+
+@test "em path ladd" {
+    false
+}
+
+@test "em path radd" {
+    false
+}
+
 @test "em no-such-command" {
     run em nosuch
     [ "$status" -eq 1 ]
