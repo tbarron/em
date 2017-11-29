@@ -19,6 +19,16 @@ function em() {
         ;;
     esac
 # -----------------------------------------------------------------------------
+function em-path() {
+    REQ=$1
+    case $REQ in
+        show)
+            em-path-show
+        ;;
+        *)
+            echo "Unrecognized path request '$REQ'"
+            false
+        ;;
     esac
 }
 
