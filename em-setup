@@ -11,8 +11,8 @@ function em() {
             echo "    path show - show \$PATH in a readable format"
             ;;
         path)
-            em-path-show
-            ;;
+            em-path $*
+        ;;
         reload)
             source $HOME/prj/em/em-setup
         ;;
