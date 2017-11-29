@@ -32,6 +32,12 @@ function setup {
     [ "$output" = "Unrecognized command nosuch" ]
 }
 
+@test "em path no-such-command" {
+    run em path nosuch
+    [ "$status" -eq 1 ]
+    [ "$output" = "Unrecognized path request 'nosuch'" ]
+}
+
 function assert_in() {
     NEEDLE=$1
     HAYSTACK=$2
