@@ -26,6 +26,12 @@ function setup {
     [ "${lines[4]}" = "/sbin" ]
 }
 
+@test "em no-such-command" {
+    run em nosuch
+    [ "$status" -eq 1 ]
+    [ "$output" = "Unrecognized command nosuch" ]
+}
+
 function assert_in() {
     NEEDLE=$1
     HAYSTACK=$2
