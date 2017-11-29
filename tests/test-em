@@ -39,8 +39,11 @@ function setup {
     [ "$output" = "$EXP" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em path decap" {
-    false
+    run em path decap
+    [ "$status" -eq 0 ]
+    [ "$PATH" = "/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz" ]
 }
 
 @test "em path dock" {
