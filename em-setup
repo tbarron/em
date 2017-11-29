@@ -1,4 +1,10 @@
 # -----------------------------------------------------------------------------
+function bt() {
+    for tf in $(ls tests/*); do
+        bats $tf
+    done
+}
+
 function em() {
     CMD=$1
     shift
