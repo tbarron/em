@@ -53,8 +53,13 @@ function setup {
     [ "$PATH" = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em path ladd" {
-    false
+    run em path ladd /a/b/c
+    EXP="/a/b/c:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    EXP="$EXP:$HOME/bin:/usr/local/xyz"
+    [ "$status" -eq 0 ]
+    [ "$PATH" = "$EXP" ]
 }
 
 @test "em path radd" {
