@@ -71,12 +71,14 @@ function setup {
     [ "$PATH" = "$EXP" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em no-such-command" {
     run em nosuch
     [ "$status" -eq 1 ]
     [ "$output" = "Unrecognized command nosuch" ]
 }
 
+# -----------------------------------------------------------------------------
 @test "em path no-such-command" {
     run em path nosuch
     [ "$status" -eq 1 ]
