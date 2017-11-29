@@ -9,7 +9,7 @@ function em() {
             echo " "
             echo "    help      - display this message"
             echo "    path show - show \$PATH in a readable format"
-            ;;
+        ;;
         path)
             em-path $*
         ;;
@@ -18,9 +18,11 @@ function em() {
         ;;
         *)
             echo "Unrecognized command $CMD"
-            exit 1
+            false
         ;;
     esac
+}
+
 # -----------------------------------------------------------------------------
 function em-path() {
     REQ=$1
