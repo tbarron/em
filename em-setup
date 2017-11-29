@@ -12,6 +12,11 @@ function em() {
         path)
             em-path-show
             ;;
+        *)
+            echo "Unrecognized command $CMD"
+            exit 1
+        ;;
+    esac
     esac
 }
 
