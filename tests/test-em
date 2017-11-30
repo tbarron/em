@@ -59,7 +59,8 @@ function setup {
 @test "em path dock" {
     run em path dock
     [ "$status" -eq 0 ]
-    [ "$PATH" = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin" ]
+    EXP="PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin"
+    [ "$output" = "EXP" ]
 }
 
 # -----------------------------------------------------------------------------
