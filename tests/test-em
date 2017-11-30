@@ -53,6 +53,12 @@ function setup {
     run em path decap
     [ "$status" -eq 0 ]
     [ "$PATH" = "/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz" ]
+# -----------------------------------------------------------------------------
+@test "em path decap -n" {
+    run em path decap
+    [ "$status" -eq 0 ]
+    EXP="would set '/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz'"
+    [ "$output" = "$EXP" ]
 }
 
 # -----------------------------------------------------------------------------
