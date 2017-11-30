@@ -33,72 +33,16 @@ function setup {
 }
 
 # -----------------------------------------------------------------------------
-@test "em path show" {
-    run em path show
-    [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "/usr/local/bin" ]
-    [ "${lines[1]}" = "/usr/bin" ]
-    [ "${lines[2]}" = "/bin" ]
-    [ "${lines[3]}" = "/usr/sbin" ]
-    [ "${lines[4]}" = "/sbin" ]
 }
 
 # -----------------------------------------------------------------------------
-@test "em path rm RGX" {
-    run em path rm sbin
     [ "$status" -eq 0 ]
-    EXP="PATH = /usr/local/bin:/usr/bin:/bin:$HOME/bin:/usr/local/xyz"
-    [ "$output" = "$EXP" ]
 }
 
 # -----------------------------------------------------------------------------
-@test "em path rm -n RGX" {
-    run em path rm -n sbin
-    [ "$status" -eq 0 ]
-    EXP="would set '/usr/local/bin:/usr/bin:/bin:$HOME/bin:/usr/local/xyz'"
-    [ "$output" = "$EXP" ]
 }
 
 # -----------------------------------------------------------------------------
-@test "em path decap" {
-    run em path decap
-    [ "$status" -eq 0 ]
-    EXP="PATH = /usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz"
-    [ "$output" = "$EXP" ]
-}
-
-# -----------------------------------------------------------------------------
-@test "em path decap -n" {
-    run em path decap -n
-    [ "$status" -eq 0 ]
-    EXP="would set '/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:/usr/local/xyz'"
-    [ "$output" = "$EXP" ]
-}
-
-# -----------------------------------------------------------------------------
-@test "em path dock" {
-    run em path dock
-    [ "$status" -eq 0 ]
-    EXP="PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin"
-    [ "$output" = "EXP" ]
-}
-
-# -----------------------------------------------------------------------------
-@test "em path ladd" {
-    run em path ladd /a/b/c
-    EXP="/a/b/c:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    EXP="$EXP:$HOME/bin:/usr/local/xyz"
-    [ "$status" -eq 0 ]
-    [ "$PATH" = "$EXP" ]
-}
-
-# -----------------------------------------------------------------------------
-@test "em path radd" {
-    run em path radd /a/b/c
-    EXP="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    EXP="$EXP:$HOME/bin:/usr/local/xyz:/a/b/c"
-    [ "$status" -eq 0 ]
-    [ "$PATH" = "$EXP" ]
 }
 
 # -----------------------------------------------------------------------------
@@ -107,11 +51,3 @@ function setup {
     [ "$status" -eq 1 ]
     [ "$output" = "Unrecognized command nosuch" ]
 }
-
-# -----------------------------------------------------------------------------
-@test "em path no-such-command" {
-    run em path nosuch
-    [ "$status" -eq 1 ]
-    [ "$output" = "Unrecognized path request 'nosuch'" ]
-}
-
