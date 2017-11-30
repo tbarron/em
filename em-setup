@@ -1,8 +1,16 @@
 # -----------------------------------------------------------------------------
 function bt() {
-    for tf in $(ls tests/*); do
-        bats $tf
-    done
+    if [ "$1" = "" ]; then
+        for tf in $(ls tests/*); do
+            echo $tf
+            bats $tf
+        done
+    else
+        for tf in "$*"; do
+            echo tests/$tf
+            bats tests/$tf
+        done
+    fi
 }
 
 # -----------------------------------------------------------------------------
