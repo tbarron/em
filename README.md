@@ -37,4 +37,5 @@
         fi
 
   * Tests, in the directory tests, can be run using the bt function. You'll
-    need to have bats installed for this.
+    need to have bats (https://github.com/sstephenson/bats) installed for
+    this to work.
