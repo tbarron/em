@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 source ./em-setup
+source ./tests/util.sh
 
 # -----------------------------------------------------------------------------
 function setup {
