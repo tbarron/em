@@ -45,6 +45,9 @@ function em() {
 function em-path() {
     REQ=$1
     case $REQ in
+        decap)
+            em-path-decap $*
+        ;;
         show)
             em-path-show
         ;;
