@@ -32,9 +32,15 @@ function em() {
             echo "em - environment manager"
             echo " "
             echo "    help             - display this message"
+            echo "    drop             - remove em functions from environment"
+            echo "    load <path>      - load the env from <path>"
+            echo "    save <path>      - save current env in <path>"
             echo "    path show        - show \$PATH in a readable format"
             echo "    path rm [-n] RGX - remove \$PATH items matching RGX"
             echo "    path decap [-n]  - remove first item from \$PATH"
+            echo "    path dock [-n]   - remove last item from \$PATH"
+            echo "    path ladd -n DIR - add DIR at beginning of \$PATH"
+            echo "    path radd -n DIR - add DIR at end of \$PATH"
         ;;
         path)
             em-path $*
