@@ -41,6 +41,14 @@ function setup {
 }
 
 # -----------------------------------------------------------------------------
+@test "em path rm -n RGX" {
+    run em path rm -n sbin
+    [ "$status" -eq 0 ]
+    EXP="would set '/usr/local/bin:/usr/bin:/bin:$HOME/bin:/usr/local/xyz'"
+    [ "$output" = "$EXP" ]
+}
+
+# -----------------------------------------------------------------------------
 @test "em path decap" {
     run em path decap
     [ "$status" -eq 0 ]
