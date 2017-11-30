@@ -33,16 +33,31 @@ function setup {
 }
 
 # -----------------------------------------------------------------------------
+@test "em save no-path" {
+    run em save
+    [ "$status" -eq 1 ]
+    [ "$output" = "'em save' requires a pathname" ]
 }
 
 # -----------------------------------------------------------------------------
+@test "em save <path>" {
+    run em save curenv
     [ "$status" -eq 0 ]
+    [ -f curenv ]
 }
 
 # -----------------------------------------------------------------------------
+@test "em load no-path" {
+    run em load
+    [ "$status" -eq 1 ]
+    [ "$output" = "'em load' requires a pathname" ]
 }
 
 # -----------------------------------------------------------------------------
+@test "em load <path>" {
+    run em load curenv
+    [ "$status" = 0 ]
+    [ "$output" = "Environment loaded from curenv" ]
 }
 
 # -----------------------------------------------------------------------------
