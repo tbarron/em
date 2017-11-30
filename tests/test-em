@@ -15,9 +15,10 @@ function setup {
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "em - environment manager" ]
     [ "${lines[1]}" = " " ]
-    [ "${lines[2]}" = "    help        - display this message" ]
-    [ "${lines[3]}" = "    path show   - show \$PATH in a readable format" ]
-    [ "${lines[4]}" = "    path rm RGX - remove \$PATH items matching RGX" ]
+    [ "${lines[2]}" = "    help             - display this message" ]
+    [ "${lines[3]}" = "    path show        - show \$PATH in a readable format" ]
+    [ "${lines[4]}" = "    path rm [-n] RGX - remove \$PATH items matching RGX" ]
+    [ "${lines[5]}" = "    path decap [-n]  - remove first item from \$PATH" ]
 }
 
 # -----------------------------------------------------------------------------
