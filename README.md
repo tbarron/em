@@ -10,16 +10,16 @@
     $ em help
     em - environment manager
 
-        help             - display this message
-        drop             - remove em functions from environment
-        save <path>      - save current env in <path>
-        load <path>      - load the env from <path>
-        path show        - show $PATH in a readable format
-        path rm [-n] RGX - remove $PATH items matching RGX
-        path decap [-n]  - remove first item from $PATH
-        path dock [-n]   - remove last item from $PATH
-        path ladd -n DIR - add DIR at beginning of $PATH
-        path radd -n DIR - add DIR at end of $PATH
+        help               - display this message
+        drop               - remove em functions from environment
+        save <path>        - save current env in <path>
+        load <path>        - load the env from <path>
+        path show          - show $PATH in a readable format
+        path rm [-n] RGX   - remove $PATH items matching RGX
+        path decap [-n]    - remove first item from $PATH
+        path dock [-n]     - remove last item from $PATH
+        path ladd [-n] DIR - add DIR at beginning of $PATH
+        path radd [-n] DIR - add DIR at end of $PATH
 
   * You can install em wherever you like. $HOME/.em is recommended.
 
