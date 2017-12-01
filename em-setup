@@ -101,6 +101,21 @@ function em-path-decap() {
 }
 
 # -----------------------------------------------------------------------------
+function em-path-dock() {
+    DRYRUN=0
+    shift
+    if [ "$1" = "-n" ]; then
+        DRYRUN=1
+    fi
+    RVAL=$(echo $PATH | sed "s/:[^:]*$//")
+    if [ $DRYRUN -eq 1 ]; then
+        echo "would set '$RVAL'"
+    else
+        export PATH=$RVAL
+        echo "PATH = $PATH"
+    fi
+}
+
 function em-path-rm() {
     DRYRUN=0
     shift # drop 'rm'
