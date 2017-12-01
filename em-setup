@@ -69,6 +69,36 @@ function funclist() {
     typeset -f
 }
 
+# -----------------------------------------------------------------------------
+function em-drop() {
+    for fname in $(funclist | grep "^em" | sed -e "s/ .*//"); do
+        unset -f $fname
+    done
+    echo "Removed em functions from environment"
+}
+
+# -----------------------------------------------------------------------------
+function em-load() {
+    if [ "$1" = "" ]; then
+        echo "'em load' requires a pathname"
+        return 1
+    else
+        source $1
+        echo "Environment loaded from $1"
+    fi
+}
+
+# -----------------------------------------------------------------------------
+function em-save() {
+    if [ "$1" = "" ]; then
+        echo "'em save' requires a pathname"
+        return 1
+    else
+        env | sed -e "s/\([^=]*\)=\(.*\)/export \1=\"\2\"/" > $1
+    fi
+}
+
+# -----------------------------------------------------------------------------
 function em-path() {
     REQ=$1
     case $REQ in
