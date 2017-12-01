@@ -125,6 +125,9 @@ function em-path-ladd() {
         DRYRUN=1
         shift
         DIR=$1
+    elif [ "$DIR" = "" ]; then
+        echo "'em path ladd' requires a directory argument"
+        return 1
     fi
     RVAL="${DIR}:${PATH}"
     if [ $DRYRUN -eq 1 ]; then
@@ -144,6 +147,9 @@ function em-path-radd() {
         DRYRUN=1
         shift
         DIR=$1
+    elif [ "$DIR" = "" ]; then
+        echo "'em path radd' requires a directory argument"
+        return 1
     fi
     RVAL="${PATH}:${DIR}"
     if [ $DRYRUN -eq 1 ]; then
@@ -163,6 +169,9 @@ function em-path-rm() {
         DRYRUN=1
         shift
         RGX=$1
+    elif [ "$RGX" = "" ]; then
+        echo "'em path rm' requires a regex argument"
+        return 1
     fi
     NP=()
     for item in $(path-array); do
