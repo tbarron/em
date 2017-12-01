@@ -39,3 +39,6 @@
   * Tests, in the directory tests, can be run using the bt function. You'll
     need to have bats (https://github.com/sstephenson/bats) installed for
     this to work.
+
+  * NOTE: If you save the current environment, set some new variables, then
+    reload the saved environment, this will not (yet) unset the new variables.
