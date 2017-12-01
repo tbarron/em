@@ -103,7 +103,7 @@ function setup {
 
 # -----------------------------------------------------------------------------
 @test "em path radd NOTHING" {
-    run em path ladd
+    run em path radd
     [ "$status" -eq 1 ]
     [ "$output" = "'em path radd' requires a directory argument" ]
 }
