@@ -22,6 +22,13 @@ function setup {
 }
 
 # -----------------------------------------------------------------------------
+@test "em path rm NOTHING" {
+    run em path rm
+    [ "$status" -eq 1 ]
+    [ "$output" = "'em path rm' requires a regex argument" ]
+}
+
+# -----------------------------------------------------------------------------
 @test "em path rm RGX" {
     run em path rm sbin
     [ "$status" -eq 0 ]
@@ -70,6 +77,13 @@ function setup {
 }
 
 # -----------------------------------------------------------------------------
+@test "em path ladd NOTHING" {
+    run em path ladd
+    [ "$status" -eq 1 ]
+    [ "$output" = "'em path ladd' requires a directory argument" ]
+}
+
+# -----------------------------------------------------------------------------
 @test "em path ladd" {
     run em path ladd /a/b/c
     EXP="PATH = /a/b/c:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -85,6 +99,13 @@ function setup {
     EXP="$EXP:$HOME/bin:/usr/local/xyz'"
     [ "$status" -eq 0 ]
     [ "$output" = "$EXP" ]
+}
+
+# -----------------------------------------------------------------------------
+@test "em path radd NOTHING" {
+    run em path ladd
+    [ "$status" -eq 1 ]
+    [ "$output" = "'em path radd' requires a directory argument" ]
 }
 
 # -----------------------------------------------------------------------------
