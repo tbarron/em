@@ -30,6 +30,11 @@ function setup {
     [ "${lines[3]}" = "    path show        - show \$PATH in a readable format" ]
     [ "${lines[4]}" = "    path rm [-n] RGX - remove \$PATH items matching RGX" ]
     [ "${lines[5]}" = "    path decap [-n]  - remove first item from \$PATH" ]
+# -----------------------------------------------------------------------------
+@test "em drop" {
+    run em drop
+    [ "$status" -eq 0 ] # construction
+    [ "$output" = "Removing em functions from environment" ]
 }
 
 # -----------------------------------------------------------------------------
