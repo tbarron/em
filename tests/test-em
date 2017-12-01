@@ -26,10 +26,18 @@ function setup {
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "em - environment manager" ]
     [ "${lines[1]}" = " " ]
-    [ "${lines[2]}" = "    help             - display this message" ]
-    [ "${lines[3]}" = "    path show        - show \$PATH in a readable format" ]
-    [ "${lines[4]}" = "    path rm [-n] RGX - remove \$PATH items matching RGX" ]
-    [ "${lines[5]}" = "    path decap [-n]  - remove first item from \$PATH" ]
+    [ "${lines[2]}" = "    help               - display this message" ]
+    [ "${lines[3]}" = "    drop               - remove em functions from environment" ]
+    [ "${lines[4]}" = "    load <path>        - load the env from <path>" ]
+    [ "${lines[5]}" = "    save <path>        - save current env in <path>" ]
+    [ "${lines[6]}" = "    path show          - show \$PATH in a readable format" ]
+    [ "${lines[7]}" = "    path rm [-n] RGX   - remove \$PATH items matching RGX" ]
+    [ "${lines[8]}" = "    path decap [-n]    - remove first item from \$PATH" ]
+    [ "${lines[9]}" = "    path dock [-n]     - remove last item from \$PATH" ]
+    [ "${lines[10]}" = "    path ladd [-n] DIR - add DIR at beginning of \$PATH" ]
+    [ "${lines[11]}" = "    path radd [-n] DIR - add DIR at end of \$PATH" ]
+}
+
 # -----------------------------------------------------------------------------
 @test "em drop" {
     run em drop
