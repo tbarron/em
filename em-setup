@@ -135,6 +135,26 @@ function em-path-ladd() {
     fi
 }
 
+# -----------------------------------------------------------------------------
+function em-path-radd() {
+    DRYRUN=0
+    shift  # drop 'radd'
+    DIR=$1
+    if [ "$DIR" = "-n" ]; then
+        DRYRUN=1
+        shift
+        DIR=$1
+    fi
+    RVAL="${PATH}:${DIR}"
+    if [ $DRYRUN -eq 1 ]; then
+        echo "would set '$RVAL'"
+    else
+        export PATH=$RVAL
+        echo "PATH = $PATH"
+    fi
+}
+
+# -----------------------------------------------------------------------------
 function em-path-rm() {
     DRYRUN=0
     shift # drop 'rm'
