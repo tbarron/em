@@ -42,7 +42,6 @@ function setup {
 @test "em drop" {
     run em drop
     [ "$status" -eq 0 ] # construction
-    echo "output: '$output'" > test.out
     [ "$output" = "Removed em functions from environment" ]
 }
 
