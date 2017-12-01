@@ -28,6 +28,9 @@ function em() {
     shift
 
     case $CMD in
+        drop)
+            em-drop
+        ;;
         help)
             echo "em - environment manager"
             echo " "
@@ -44,6 +47,12 @@ function em() {
         ;;
         path)
             em-path $*
+        ;;
+        save)
+            em-save $*
+        ;;
+        load)
+            em-load $*
         ;;
         reload)
             source $HOME/prj/em/em-setup
