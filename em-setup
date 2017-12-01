@@ -62,11 +62,20 @@ function em-path() {
         decap)
             em-path-decap $*
         ;;
-        show)
-            em-path-show
+        dock)
+            em-path-dock $*
+        ;;
+        ladd)
+            em-path-ladd $*
+        ;;
+        radd)
+            em-path-radd $*
         ;;
         rm)
             em-path-rm $*
+        ;;
+        show)
+            em-path-show
         ;;
         *)
             echo "Unrecognized path request '$REQ'"
