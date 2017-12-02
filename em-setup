@@ -94,7 +94,10 @@ function em-save() {
         echo "'em save' requires a pathname"
         return 1
     else
-        env | sed -e "s/\([^=]*\)=\(.*\)/export \1=\"\2\"/" > $1
+        echo "# Environment" > $1
+        env | sed -e "s/\([^=]*\)=\(.*\)/export \1=\"\2\"/" >> $1
+        echo "# Functions" >> $1
+        funclist >> $1
     fi
 }
 
