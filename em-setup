@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------
 function bt() {
     if [ "$1" = "" ]; then
-        for tf in $(ls tests/*); do
+        for tf in $(ls tests/*test*); do
             echo $tf
             bats $tf
         done
